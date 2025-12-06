@@ -6,24 +6,31 @@
 /*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:13:00 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/05 17:33:27 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/06 11:48:56 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list *init_list(t_list *lst, int nbr)
+t_list *init_list(t_list *lst, int *nbr)
 {
     t_list *new;
 
+    if (!nbr || verif_duplicate(lst))
+    {
+        clear_lst(lst);
+        if (nbr)
+            free(nbr);
+        return (NULL);
+    }
     if (!lst)
     {
-        lst = new_lst(nbr);
+        lst = new_lst(*nbr);
         if (!lst)
             return (NULL);
         return (lst);
     }
-    new = new_lst(nbr);
+    new = new_lst(*nbr);
     if (!new)
     {
         clear_lst(lst);

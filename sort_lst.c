@@ -6,13 +6,13 @@
 /*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:15:56 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/05 16:16:47 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/06 11:23:13 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "printf.h"
 
-void sort_lst(t_list *lst)
+void sort_lst(t_list *lst_a, t_list *lst_b)
 {
 }

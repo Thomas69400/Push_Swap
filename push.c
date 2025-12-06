@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 18:28:41 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/05 19:13:30 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/06 10:49:06 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,4 @@ void push(t_list **lst, t_list **lst_pushed_into)
     }
     else
         *lst = NULL;
-}
-
-void d_push(t_list *first_lst, t_list *second_lst)
-{
 }
