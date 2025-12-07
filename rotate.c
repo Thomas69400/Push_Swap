@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse.c                                          :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 10:49:38 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/06 10:57:27 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/07 19:22:35 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void rotate(t_list **lst)
+void	rotate(t_list **lst)
 {
-    t_list *tmp;
+	t_list	*tmp;
 
-    if (!lst || !*lst || !(*lst)->next)
-        return;
-    tmp = first_lst(*lst);
-    *lst = tmp->next;
-    add_back_lst(lst, tmp);
-    (*lst)->prev = NULL;
-    tmp->next = NULL;
+	if (!lst || !*lst || !(*lst)->next)
+		return ;
+	ft_printf("r%c\n", (*lst)->name);
+	tmp = first_lst(*lst);
+	*lst = tmp->next;
+	add_back_lst(lst, tmp);
+	(*lst)->prev = NULL;
+	tmp->next = NULL;
 }
 
-void d_rotate(t_list **first_lst, t_list **second_lst)
+void	d_rotate(t_list **first_lst, t_list **second_lst)
 {
-    rotate(first_lst);
-    rotate(second_lst);
+	rotate(first_lst);
+	rotate(second_lst);
 }
