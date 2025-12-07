@@ -6,11 +6,28 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 18:28:41 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/07 19:22:51 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/07 19:59:12 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+t_list	*change_name(t_list *lst)
+{
+	if (lst->name == 'a')
+		lst->name = 'b';
+	else
+		lst->name = 'a';
+	return (lst);
+}
+
+void	print_push(t_list *lst)
+{
+	if (lst->name == 'a')
+		ft_printf("pb\n");
+	else
+		ft_printf("pa\n");
+}
 
 void	push(t_list **lst, t_list **lst_pushed_into)
 {
@@ -18,7 +35,7 @@ void	push(t_list **lst, t_list **lst_pushed_into)
 
 	if (!(*lst))
 		return ;
-    ft_printf("p%c\n", (*lst)->name);
+	print_push(*lst);
 	if (!(*lst_pushed_into))
 	{
 		*lst_pushed_into = new_lst((*lst)->nb);
@@ -35,7 +52,7 @@ void	push(t_list **lst, t_list **lst_pushed_into)
 	if (tmp)
 	{
 		tmp->prev = NULL;
-		tmp->name = 'a' ? 'b' : 'a';
+		tmp = change_name(tmp);
 		*lst = first_lst(tmp);
 	}
 	else

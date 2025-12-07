@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:28 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/07 19:25:18 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/07 19:50:12 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	main(int argc, char **argv)
 			return (print_error());
 		free(nbr);
 	}
+	// print_list(a);
 	a = sort_lst(a, b);
 	// print_list(a);
 	clear_lst(a);
