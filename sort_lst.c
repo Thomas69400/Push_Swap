@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:15:56 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/07 19:46:26 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/08 14:24:09 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ int	is_sorted(t_list *lst)
 	return (1);
 }
 
+/**
+*	Algo tout pouri qui fait de la merde (tri a bulle)
+*/
 t_list	*sort_lst(t_list *lst_a, t_list *lst_b)
 {
 	t_list	*tmp;

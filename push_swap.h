@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:11 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/07 19:12:53 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/08 14:27:23 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,15 @@ typedef struct s_list
 {
 	int				nb;
 	char			name;
+	int				origin;
+	int				last_index;
 	struct s_list	*prev;
 	struct s_list	*next;
 }					t_list;
 
 int					*ft_atoi(char *s);
 
-void				clear_lst(t_list *lst);
+void				*clear_lst(t_list *lst);
 void				add_back_lst(t_list **lst, t_list *new);
 void				add_front_lst(t_list **lst, t_list *new);
 t_list				*new_lst(int nbr);

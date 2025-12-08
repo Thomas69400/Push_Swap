@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:28 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/07 19:50:12 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/08 14:15:02 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int	main(int argc, char **argv)
 	int		i;
 	int		*nbr;
 
-	if (argc <= 1)
+	if (argc <= 2)
 		return (print_error());
-	i = 0;
+	i = 1;
 	a = NULL;
 	b = NULL;
 	while (++i < argc)

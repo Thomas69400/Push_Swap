@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:13:00 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/07 19:13:28 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/08 14:28:05 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 t_list	*init_list(t_list *lst, int *nbr)
 {
-	t_list	*new;
+	t_list		*new;
+	static int	index = 0;
 
 	if (!nbr || verif_duplicate(lst, *nbr))
 	{
-		clear_lst(lst);
 		if (nbr)
 			free(nbr);
-		return (NULL);
+		return (clear_lst(lst));
 	}
 	if (!lst)
 	{
@@ -32,15 +32,13 @@ t_list	*init_list(t_list *lst, int *nbr)
 	}
 	new = new_lst(*nbr);
 	if (!new)
-	{
-		clear_lst(lst);
-		return (NULL);
-	}
+		return (clear_lst(lst));
+	new->origin = index++;
 	add_back_lst(&lst, new);
 	return (lst);
 }
 
-void	clear_lst(t_list *lst)
+void	*clear_lst(t_list *lst)
 {
 	t_list	*temp;
 
@@ -51,6 +49,7 @@ void	clear_lst(t_list *lst)
 		free(lst);
 		lst = temp;
 	}
+	return (NULL);
 }
 
 t_list	*last_lst(t_list *lst)
