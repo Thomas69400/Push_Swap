@@ -1,16 +1,19 @@
 CC = cc
 
-CFLAGS = -Werror -Wall -Wextra -g3
+CFLAGS = -g3 #-Werror -Wall -Wextra 
 
 SRCS = main.c \
 ft_atoi.c \
+ft_strncmp.c \
 error_utils.c \
 ft_printf.c \
 lst_utils.c \
+lst_utils_bis.c \
 push.c \
 reverse.c \
 rotate.c \
 sort_lst.c \
+sort_lst_utils.c \
 swap.c 
 
 HEADERS = push_swap.h \
@@ -22,7 +25,7 @@ NAME = push_swap
 
 all : $(NAME)
 
-$(NAME): $(OBJS) Makefile
+$(NAME): $(OBJS) Makefile $(HEADER)
 	$(CC) $(CFLAGS) -o $@ $(OBJS)
 
 %.o: %.c $(HEADER)

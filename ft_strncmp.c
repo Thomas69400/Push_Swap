@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_utils.c                                      :+:      :+:    :+:   */
+/*   strcmp.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/06 11:29:20 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/08 19:11:12 by tchemin          ###   ########.fr       */
+/*   Created: 2025/12/08 17:30:38 by tchemin           #+#    #+#             */
+/*   Updated: 2025/12/08 17:30:51 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	print_error(t_list *a, t_list *b)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	clear_lst(a);
-	clear_lst(b);
-	ft_printf("Error\n");
-	return (1);
-}
+	unsigned int	i;
 
-int	verif_duplicate(t_list *lst, int nbr)
-{
-	if (!lst)
+	i = 0;
+	if (n == 0)
 		return (0);
-	while (lst)
-	{
-		if (lst->nb == nbr)
-			return (1);
-		lst = lst->next;
-	}
-	return (0);
+	while ((unsigned char)s1[i] && (unsigned char)s1[i] == (unsigned char)s2[i]
+		&& i < n - 1)
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

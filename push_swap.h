@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:11 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/08 14:27:23 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/08 20:27:46 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,27 @@ typedef struct s_list
 	char			name;
 	int				origin;
 	int				last_index;
+	//char			*last_index_bin;
 	struct s_list	*prev;
 	struct s_list	*next;
 }					t_list;
 
 int					*ft_atoi(char *s);
+int					ft_strncmp(char *s1, char *s2, unsigned int n);
 
+void				convert_final_index_to_binary(t_list *lst);
+void				place_final_index(t_list *array_sorted, t_list *lst);
 void				*clear_lst(t_list *lst);
 void				add_back_lst(t_list **lst, t_list *new);
 void				add_front_lst(t_list **lst, t_list *new);
-t_list				*new_lst(int nbr);
+t_list				*new_lst(int nbr, char name, int origin, int last_index);
 t_list				*last_lst(t_list *lst);
 t_list				*init_list(t_list *lst, int *nbr);
 t_list				*first_lst(t_list *lst);
+int					size_lst(t_list *lst);
 
 int					verif_duplicate(t_list *lst, int nbr);
-int					print_error(void);
+int					print_error(t_list *a, t_list *b);
 
 void				swap(t_list **lst);
 void				d_swap(t_list *first_lst, t_list *second_lst);
@@ -48,6 +53,9 @@ void				d_rotate(t_list **first_lst, t_list **second_lst);
 void				reverse(t_list **lst);
 void				d_reverse(t_list **first_lst, t_list **second_lst);
 
-t_list				*sort_lst(t_list *lst_a, t_list *lst_b);
+int					is_sorted(t_list *lst);
+void				sort(t_list *lst_a);
+t_list				*simple(t_list *lst_a, t_list *lst_b);
+t_list				*init_array(t_list *lst);
 
 #endif

@@ -1,34 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_utils.c                                      :+:      :+:    :+:   */
+/*   sort_lst_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/06 11:29:20 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/08 19:11:12 by tchemin          ###   ########.fr       */
+/*   Created: 2025/12/08 17:38:34 by tchemin           #+#    #+#             */
+/*   Updated: 2025/12/08 20:10:51 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	print_error(t_list *a, t_list *b)
+int	is_sorted(t_list *lst)
 {
-	clear_lst(a);
-	clear_lst(b);
-	ft_printf("Error\n");
+	if (!lst)
+		return (1);
+	lst = first_lst(lst);
+	while (lst->next)
+	{
+		if (lst->nb > lst->next->nb)
+			return (0);
+		lst = lst->next;
+	}
 	return (1);
 }
 
-int	verif_duplicate(t_list *lst, int nbr)
+t_list	*init_array(t_list *lst)
 {
+	t_list	*array;
+	int		index;
+
 	if (!lst)
-		return (0);
+		return (NULL);
+	array = malloc(sizeof(t_list) * size_lst(lst));
+	if (!array)
+		return (NULL);
+	index = 0;
 	while (lst)
 	{
-		if (lst->nb == nbr)
-			return (1);
+		array[index] = *lst;
 		lst = lst->next;
+		index++;
 	}
-	return (0);
+	return (array);
 }

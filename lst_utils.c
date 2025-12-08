@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:13:00 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/08 14:28:05 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/08 20:15:39 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,14 @@ t_list	*init_list(t_list *lst, int *nbr)
 	}
 	if (!lst)
 	{
-		lst = new_lst(*nbr);
+		lst = new_lst(*nbr, 'a', index++, 0);
 		if (!lst)
 			return (NULL);
 		return (lst);
 	}
-	new = new_lst(*nbr);
+	new = new_lst(*nbr, 'a', index++, 0);
 	if (!new)
 		return (clear_lst(lst));
-	new->origin = index++;
 	add_back_lst(&lst, new);
 	return (lst);
 }
@@ -42,11 +41,15 @@ void	*clear_lst(t_list *lst)
 {
 	t_list	*temp;
 
+	lst = first_lst(lst);
 	temp = lst;
 	while (lst)
 	{
+		if (lst->last_index_bin)
+			free(lst->last_index_bin);
 		temp = lst->next;
 		free(lst);
+		lst = NULL;
 		lst = temp;
 	}
 	return (NULL);
@@ -79,31 +82,4 @@ void	add_back_lst(t_list **lst, t_list *new)
 	}
 	new->prev = last_lst(*lst);
 	last_lst(*lst)->next = new;
-}
-
-void	add_front_lst(t_list **lst, t_list *new)
-{
-	if (!lst)
-	{
-		*lst = new;
-		return ;
-	}
-	new->next = first_lst(*lst);
-	new->prev = NULL;
-	first_lst(*lst)->prev = new;
-	*lst = new;
-}
-
-t_list	*new_lst(int nbr)
-{
-	t_list	*new;
-
-	new = malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new->next = NULL;
-	new->prev = NULL;
-	new->name = 'a';
-	new->nb = nbr;
-	return (new);
 }
