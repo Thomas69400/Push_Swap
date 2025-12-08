@@ -4,6 +4,8 @@ CFLAGS = -g3 #-Werror -Wall -Wextra
 
 SRCS = main.c \
 ft_atoi.c \
+ft_bzero.c \
+ft_calloc.c \
 ft_strncmp.c \
 error_utils.c \
 ft_printf.c \

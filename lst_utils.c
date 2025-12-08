@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   lst_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:13:00 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/08 20:15:39 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/08 22:14:49 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*init_list(t_list *lst, int *nbr)
+t_list *init_list(t_list *lst, int *nbr)
 {
-	t_list		*new;
-	static int	index = 0;
+	t_list *new;
+	static int index = 0;
 
 	if (!nbr || verif_duplicate(lst, *nbr))
 	{
@@ -37,17 +37,16 @@ t_list	*init_list(t_list *lst, int *nbr)
 	return (lst);
 }
 
-void	*clear_lst(t_list *lst)
+void *clear_lst(t_list *lst)
 {
-	t_list	*temp;
+	t_list *temp;
 
 	lst = first_lst(lst);
-	temp = lst;
 	while (lst)
 	{
+		temp = lst->next;
 		if (lst->last_index_bin)
 			free(lst->last_index_bin);
-		temp = lst->next;
 		free(lst);
 		lst = NULL;
 		lst = temp;
@@ -55,7 +54,7 @@ void	*clear_lst(t_list *lst)
 	return (NULL);
 }
 
-t_list	*last_lst(t_list *lst)
+t_list *last_lst(t_list *lst)
 {
 	if (!lst)
 		return (NULL);
@@ -64,7 +63,7 @@ t_list	*last_lst(t_list *lst)
 	return (lst);
 }
 
-t_list	*first_lst(t_list *lst)
+t_list *first_lst(t_list *lst)
 {
 	if (!lst)
 		return (NULL);
@@ -73,12 +72,12 @@ t_list	*first_lst(t_list *lst)
 	return (lst);
 }
 
-void	add_back_lst(t_list **lst, t_list *new)
+void add_back_lst(t_list **lst, t_list *new)
 {
 	if (!lst)
 	{
 		*lst = new;
-		return ;
+		return;
 	}
 	new->prev = last_lst(*lst);
 	last_lst(*lst)->next = new;
