@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:11 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/09 15:26:00 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/09 18:37:46 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ typedef struct s_list
 	char			name;
 	int				origin;
 	int				last_index;
-	char			*last_index_bin;
 	struct s_list	*prev;
 	struct s_list	*next;
 }					t_list;

@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 10:49:38 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/09 17:19:14 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/09 19:41:44 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	rotate(t_list **lst)
 {
 	t_list	*tmp;
 
-	if (!lst || !*lst || !(*lst)->next)
+	if (!lst || !*lst)
 		return ;
 	ft_printf("r%c\n", (*lst)->name);
 	tmp = first_lst(*lst);

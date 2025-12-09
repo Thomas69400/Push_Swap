@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 11:14:03 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/09 17:19:17 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/09 19:41:50 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	reverse(t_list **lst)
 {
 	t_list	*tmp;
 
-	if (!lst || !*lst || !(*lst)->next)
+	if (!lst || !*lst)
 		return ;
 	ft_printf("rr%c\n", (*lst)->name);
 	tmp = last_lst(*lst);

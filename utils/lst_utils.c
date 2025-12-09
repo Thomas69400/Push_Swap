@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:13:00 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/09 13:49:32 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/09 18:38:50 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ void	*delone_lst(t_list *lst)
 {
 	if (!lst)
 		return (NULL);
-	if (lst->last_index_bin)
-		free(lst->last_index_bin);
 	free(lst);
 	return (NULL);
 }

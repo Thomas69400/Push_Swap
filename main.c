@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:28 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/09 17:30:17 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/09 19:46:17 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,19 @@ static int	success(t_list *a, t_list *b)
 	return (0);
 }
 
-// static void	print_list(t_list *lst)
-// {
-// 	t_list	*temp;
+static void	print_list(t_list *lst)
+{
+	t_list	*temp;
 
-// 	temp = lst;
-// 	while (temp)
-// 	{
-// 		ft_printf("%d --> %c / %d / %d", temp->nb, temp->name, temp->origin,
-// 			temp->last_index);
-// 		ft_printf(" / %s\n", temp->last_index_bin);
-// 		temp = temp->next;
-// 	}
-// }
+	temp = lst;
+	ft_printf("\n======= MAIN ========\n");
+	while (temp)
+	{
+		ft_printf("%d --> %c / %d / %d \n", temp->nb, temp->name, temp->origin,
+			temp->last_index);
+		temp = temp->next;
+	}
+}
 
 int	main(int argc, char **argv)
 {
@@ -72,7 +72,7 @@ int	main(int argc, char **argv)
 		free(nbr);
 	}
 	a = choose_alg(argv[1], a, b);
-	//print_list(a);
+	print_list(a);
 	if (!a)
 		return (1);
 	return (success(a, b));
