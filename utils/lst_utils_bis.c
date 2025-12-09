@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   lst_utils_bis.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:39:35 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/08 22:17:49 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/09 17:14:58 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void add_front_lst(t_list **lst, t_list *new)
+void	add_front_lst(t_list **lst, t_list *new)
 {
 	if (!lst)
 	{
 		*lst = new;
-		return;
+		return ;
 	}
 	new->next = first_lst(*lst);
 	new->prev = NULL;
@@ -25,9 +25,9 @@ void add_front_lst(t_list **lst, t_list *new)
 	*lst = new;
 }
 
-t_list *new_lst(int nbr, char name, int origin, int last_index)
+t_list	*new_lst(int nbr, char name, int origin, int last_index)
 {
-	t_list *new;
+	t_list	*new;
 
 	new = malloc(sizeof(t_list));
 	if (!new)
@@ -38,14 +38,17 @@ t_list *new_lst(int nbr, char name, int origin, int last_index)
 	new->last_index = last_index;
 	new->name = name;
 	new->nb = nbr;
-	new->last_index_bin = NULL;
+	if (last_index != -1)
+		new->last_index_bin = convert_final_index_to_binary(last_index, NULL);
+	else
+		new->last_index_bin = NULL;
 	return (new);
 }
 
-int size_lst(t_list *lst)
+int	size_lst(t_list *lst)
 {
-	int i;
-	t_list *tmp;
+	int		i;
+	t_list	*tmp;
 
 	if (!lst)
 		return (0);
@@ -59,13 +62,13 @@ int size_lst(t_list *lst)
 	return (i);
 }
 
-void place_final_index(t_list *array_sorted, t_list *lst)
+void	place_final_index(t_list *array_sorted, t_list *lst)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	if (!lst && !array_sorted)
-		return;
+		return ;
 	i = 0;
 	while (i++ < size_lst(lst))
 	{
@@ -75,8 +78,10 @@ void place_final_index(t_list *array_sorted, t_list *lst)
 			if (array_sorted[j].nb == lst->nb)
 			{
 				lst->last_index = j;
+				lst->last_index_bin = convert_final_index_to_binary(j,
+						lst);
 				lst = lst->next;
-				break;
+				break ;
 			}
 			j++;
 		}
@@ -85,31 +90,28 @@ void place_final_index(t_list *array_sorted, t_list *lst)
 		free(array_sorted);
 }
 
-void convert_final_index_to_binary(t_list *lst)
+char	*convert_final_index_to_binary(int nbr, t_list *lst)
 {
-	char bin[2];
-	int nbr;
-	int i;
+	char		*bin;
+	char		*s;
+	int			size;
+	static int	highest_index = 0;
 
-	bin[0] = '0';
-	bin[1] = '1';
-	while (lst)
+	if (nbr == -1)
+		return (NULL);
+	if (lst)
+		highest_index = size_lst(lst);
+	bin = "01";
+	size = get_size_of_bin(highest_index);
+	s = ft_calloc(size + 1, 1);
+	s[size--] = '\0';
+	if (!s)
+		return (NULL);
+	while (nbr / 2 != 0)
 	{
-		// i = 0;
-		nbr = lst->last_index;
-		ft_printf("NBR = %d\n", nbr);
-		lst->last_index_bin = ft_calloc(33, 1);
-		if (!lst->last_index_bin)
-		{
-			clear_lst(lst);
-			return;
-		}
-		//  while (nbr / 2 != 0)
-		//  {
-		//  	lst->last_index_bin[i++] = bin[nbr % 2];
-		//  	nbr = nbr / 2;
-		//  }
-		//  lst->last_index_bin[i] = bin[nbr % 2];
-		lst = lst->next;
+		s[size--] = bin[nbr % 2];
+		nbr = nbr / 2;
 	}
+	s[size--] = bin[nbr % 2];
+	return (s);
 }

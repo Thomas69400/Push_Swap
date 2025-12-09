@@ -3,58 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   lst_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:13:00 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/08 22:14:49 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/09 13:49:32 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-t_list *init_list(t_list *lst, int *nbr)
+void	*clear_lst(t_list *lst)
 {
-	t_list *new;
-	static int index = 0;
-
-	if (!nbr || verif_duplicate(lst, *nbr))
-	{
-		if (nbr)
-			free(nbr);
-		return (clear_lst(lst));
-	}
-	if (!lst)
-	{
-		lst = new_lst(*nbr, 'a', index++, 0);
-		if (!lst)
-			return (NULL);
-		return (lst);
-	}
-	new = new_lst(*nbr, 'a', index++, 0);
-	if (!new)
-		return (clear_lst(lst));
-	add_back_lst(&lst, new);
-	return (lst);
-}
-
-void *clear_lst(t_list *lst)
-{
-	t_list *temp;
+	t_list	*temp;
 
 	lst = first_lst(lst);
 	while (lst)
 	{
 		temp = lst->next;
-		if (lst->last_index_bin)
-			free(lst->last_index_bin);
-		free(lst);
-		lst = NULL;
+		lst = delone_lst(lst);
 		lst = temp;
 	}
 	return (NULL);
 }
 
-t_list *last_lst(t_list *lst)
+void	*delone_lst(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	if (lst->last_index_bin)
+		free(lst->last_index_bin);
+	free(lst);
+	return (NULL);
+}
+
+t_list	*last_lst(t_list *lst)
 {
 	if (!lst)
 		return (NULL);
@@ -63,7 +45,7 @@ t_list *last_lst(t_list *lst)
 	return (lst);
 }
 
-t_list *first_lst(t_list *lst)
+t_list	*first_lst(t_list *lst)
 {
 	if (!lst)
 		return (NULL);
@@ -72,12 +54,12 @@ t_list *first_lst(t_list *lst)
 	return (lst);
 }
 
-void add_back_lst(t_list **lst, t_list *new)
+void	add_back_lst(t_list **lst, t_list *new)
 {
 	if (!lst)
 	{
 		*lst = new;
-		return;
+		return ;
 	}
 	new->prev = last_lst(*lst);
 	last_lst(*lst)->next = new;

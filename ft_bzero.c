@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 22:04:03 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/08 22:14:03 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/09 14:04:54 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-    size_t i;
+	size_t	i;
 
-    i = 0;
-    while (i < n)
-    {
-        *((unsigned char *)s) = 0;
-        i++;
-        s++;
-    }
+	i = 0;
+	while (i < n)
+	{
+		*((unsigned char *)s) = '0';
+		i++;
+		s++;
+	}
 }

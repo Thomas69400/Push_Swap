@@ -1,22 +1,30 @@
 CC = cc
 
-CFLAGS = -g3 #-Werror -Wall -Wextra 
+CFLAGS = -g3 -Werror -Wall -Wextra 
+
+UTILS_DIR = utils/
+ALGO_DIR = algos/
 
 SRCS = main.c \
 ft_atoi.c \
 ft_bzero.c \
 ft_calloc.c \
 ft_strncmp.c \
-error_utils.c \
+ft_strlen.c \
+init_data.c \
 ft_printf.c \
-lst_utils.c \
-lst_utils_bis.c \
 push.c \
 reverse.c \
 rotate.c \
-sort_lst.c \
-sort_lst_utils.c \
-swap.c 
+swap.c \
+$(UTILS_DIR)nbr_utils.c \
+$(UTILS_DIR)lst_utils.c \
+$(UTILS_DIR)lst_utils_bis.c \
+$(UTILS_DIR)error_utils.c \
+$(UTILS_DIR)algos_utils.c \
+$(ALGO_DIR)simple.c \
+$(ALGO_DIR)medium.c \
+$(ALGO_DIR)complex.c \
 
 HEADERS = push_swap.h \
 ft_printf.h

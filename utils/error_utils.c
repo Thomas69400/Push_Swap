@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse.c                                          :+:      :+:    :+:   */
+/*   error_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/06 11:14:03 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/09 17:19:17 by tchemin          ###   ########.fr       */
+/*   Created: 2025/12/06 11:29:20 by tchemin           #+#    #+#             */
+/*   Updated: 2025/12/09 17:48:58 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	reverse(t_list **lst)
+int	print_error(t_list *a, t_list *b)
 {
-	t_list	*tmp;
-
-	if (!lst || !*lst || !(*lst)->next)
-		return ;
-	ft_printf("rr%c\n", (*lst)->name);
-	tmp = last_lst(*lst);
-	tmp->prev->next = NULL;
-	add_front_lst(lst, tmp);
-	(*lst)->prev = tmp->prev;
-	*lst = tmp;
+	clear_lst(a);
+	clear_lst(b);
+	ft_printf("Error\n");
+	return (1);
 }
 
-void	d_reverse(t_list **first_lst, t_list **second_lst)
+int	verif_duplicate(t_list *lst, int nbr)
 {
-	reverse(first_lst);
-	reverse(second_lst);
+	if (!lst)
+		return (0);
+	while (lst)
+	{
+		if (lst->nb == nbr)
+		{
+			ft_printf("%d\n", nbr);
+			return (1);
+		}lst = lst->next;
+	}
+	return (0);
 }

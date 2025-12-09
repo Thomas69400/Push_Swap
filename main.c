@@ -3,30 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:28 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/08 22:01:57 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/09 17:30:17 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void print_list(t_list *lst)
-{
-	t_list *temp;
-
-	temp = lst;
-	while (temp)
-	{
-		ft_printf("%d --> %c / %d / %d", temp->nb, temp->name, temp->origin,
-				  temp->last_index);
-		ft_printf("/ %s\n", temp->last_index_bin);
-		temp = temp->next;
-	}
-}
-
-static t_list *choose_alg(char *algo, t_list *a, t_list *b)
+static t_list	*choose_alg(char *algo, t_list *a, t_list *b)
 {
 	if (a)
 		sort(a);
@@ -34,15 +20,15 @@ static t_list *choose_alg(char *algo, t_list *a, t_list *b)
 		return (simple(a, b));
 	// else if (algo == "--medium")
 	// 	return (medium(a, b));
-	// else if (algo == "--complex")
-	// 	return (complex(a, b));
+	else if (!ft_strncmp(algo, "--complex", 9))
+		return (complex(a, b));
 	// else if (algo == "--adaptive")
 	// 	return (adaptive(a, b));
 	print_error(a, b);
 	return (NULL);
 }
 
-static int success(t_list *a, t_list *b)
+static int	success(t_list *a, t_list *b)
 {
 	if (a)
 		clear_lst(a);
@@ -51,12 +37,26 @@ static int success(t_list *a, t_list *b)
 	return (0);
 }
 
-int main(int argc, char **argv)
+// static void	print_list(t_list *lst)
+// {
+// 	t_list	*temp;
+
+// 	temp = lst;
+// 	while (temp)
+// 	{
+// 		ft_printf("%d --> %c / %d / %d", temp->nb, temp->name, temp->origin,
+// 			temp->last_index);
+// 		ft_printf(" / %s\n", temp->last_index_bin);
+// 		temp = temp->next;
+// 	}
+// }
+
+int	main(int argc, char **argv)
 {
-	t_list *a;
-	t_list *b;
-	int i;
-	int *nbr;
+	t_list	*a;
+	t_list	*b;
+	int		i;
+	int		*nbr;
 
 	a = NULL;
 	b = NULL;
@@ -72,7 +72,7 @@ int main(int argc, char **argv)
 		free(nbr);
 	}
 	a = choose_alg(argv[1], a, b);
-	print_list(a);
+	//print_list(a);
 	if (!a)
 		return (1);
 	return (success(a, b));

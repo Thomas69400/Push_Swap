@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_lst.c                                         :+:      :+:    :+:   */
+/*   simple.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:15:56 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/08 22:10:31 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/09 17:18:50 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-/*
-
-	* Tri une liste sans faire des push swap et autres pour avoir leur index reel de FIN
- */
-void sort(t_list *lst_a)
+void	sort(t_list *lst_a)
 {
-	t_list *array;
-	t_list tmp;
-	int i;
-	int j;
+	t_list	*array;
+	t_list	tmp;
+	int		i;
+	int		j;
 
 	if (!lst_a)
-		return;
+		return ;
 	array = init_array(lst_a);
 	i = 0;
 	while (i++ < size_lst(lst_a))
@@ -42,15 +38,11 @@ void sort(t_list *lst_a)
 		}
 	}
 	place_final_index(array, lst_a);
-	convert_final_index_to_binary(first_lst(lst_a));
 }
 
-/**
- *	Algo tout pouri qui fait de la merde (tri a bulle)
- */
-t_list *simple(t_list *lst_a, t_list *lst_b)
+t_list	*simple(t_list *lst_a, t_list *lst_b)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	if (!lst_a)
 		return (NULL);

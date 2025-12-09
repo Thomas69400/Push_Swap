@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse.c                                          :+:      :+:    :+:   */
+/*   nbr_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/06 11:14:03 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/09 17:19:17 by tchemin          ###   ########.fr       */
+/*   Created: 2025/12/09 13:39:13 by tchemin           #+#    #+#             */
+/*   Updated: 2025/12/09 17:20:16 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	reverse(t_list **lst)
+int	get_size_of_bin(int nbr)
 {
-	t_list	*tmp;
+	int	size;
 
-	if (!lst || !*lst || !(*lst)->next)
-		return ;
-	ft_printf("rr%c\n", (*lst)->name);
-	tmp = last_lst(*lst);
-	tmp->prev->next = NULL;
-	add_front_lst(lst, tmp);
-	(*lst)->prev = tmp->prev;
-	*lst = tmp;
-}
-
-void	d_reverse(t_list **first_lst, t_list **second_lst)
-{
-	reverse(first_lst);
-	reverse(second_lst);
+	size = 1;
+	while (nbr / 2 != 0)
+	{
+		nbr = nbr / 2;
+		size++;
+	}
+	return (size);
 }

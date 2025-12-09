@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 18:28:41 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/08 19:01:23 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/09 17:19:20 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ void	push(t_list **lst, t_list **lst_pushed_into)
 	}
 	else
 	{
-		add_front_lst(lst_pushed_into, new_lst((*lst)->nb, name,
-				(*lst)->origin, (*lst)->last_index));
+		add_front_lst(lst_pushed_into, new_lst((*lst)->nb, name, (*lst)->origin,
+				(*lst)->last_index));
 		*lst_pushed_into = first_lst(*lst_pushed_into);
 	}
 	tmp = (*lst)->next;
-	free(*lst);
+	delone_lst(*lst);
 	if (tmp)
 	{
 		tmp->prev = NULL;

@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_utils.c                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/06 11:29:20 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/08 19:11:12 by tchemin          ###   ########.fr       */
+/*   Created: 2025/12/09 14:48:27 by tchemin           #+#    #+#             */
+/*   Updated: 2025/12/09 14:49:32 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	print_error(t_list *a, t_list *b)
+int	ft_strlen(char *s)
 {
-	clear_lst(a);
-	clear_lst(b);
-	ft_printf("Error\n");
-	return (1);
-}
+	int	i;
 
-int	verif_duplicate(t_list *lst, int nbr)
-{
-	if (!lst)
+	if (!s)
 		return (0);
-	while (lst)
-	{
-		if (lst->nb == nbr)
-			return (1);
-		lst = lst->next;
-	}
-	return (0);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }
