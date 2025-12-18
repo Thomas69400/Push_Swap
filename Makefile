@@ -17,6 +17,7 @@ push.c \
 reverse.c \
 rotate.c \
 swap.c \
+disorder.c \
 $(UTILS_DIR)nbr_utils.c \
 $(UTILS_DIR)lst_utils.c \
 $(UTILS_DIR)lst_utils_bis.c \

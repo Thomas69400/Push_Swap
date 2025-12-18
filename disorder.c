@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_utils.c                                      :+:      :+:    :+:   */
+/*   disorder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/06 11:29:20 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/18 17:36:30 by tchemin          ###   ########.fr       */
+/*   Created: 2025/12/18 14:13:18 by tchemin           #+#    #+#             */
+/*   Updated: 2025/12/18 15:43:32 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-int	print_error(t_list *a, t_list *b)
+float	compute_disorder(t_list *lst)
 {
-	clear_lst(a);
-	clear_lst(b);
-	ft_printf("Error\n");
-	return (1);
-}
-
-int	verif_duplicate(t_list *lst)
-{
+	float	mistakes;
+	float	pairs;
 	t_list	*tmp;
 
-	if (!lst)
-		return (0);
+	mistakes = 0;
+	pairs = 0;
 	while (lst)
 	{
 		tmp = lst->next;
 		while (tmp)
 		{
-			if (lst->nb == tmp->nb)
-				return (1);
+			pairs++;
+			if (lst->nb > tmp->nb)
+				mistakes++;
 			tmp = tmp->next;
 		}
 		lst = lst->next;
 	}
-	return (0);
+	return (mistakes / pairs);
 }
