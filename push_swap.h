@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:11 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/09 18:37:46 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/18 19:02:43 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-int					*ft_atoi(char *s);
+int					*ft_atoi(char **s);
+int					has_numbers(char *to_atoi);
 int					ft_strncmp(char *s1, char *s2, unsigned int n);
 void				*ft_calloc(size_t nmemb, size_t size);
 void				ft_bzero(void *s, size_t n);
@@ -41,12 +42,12 @@ void				add_back_lst(t_list **lst, t_list *new);
 void				add_front_lst(t_list **lst, t_list *new);
 t_list				*new_lst(int nbr, char name, int origin, int last_index);
 t_list				*last_lst(t_list *lst);
-t_list				*init_list(t_list *lst, int *nbr);
+t_list				*init_list(t_list *lst, char *to_atoi);
 t_list				*first_lst(t_list *lst);
 int					size_lst(t_list *lst);
 void				*delone_lst(t_list *lst);
 
-int					verif_duplicate(t_list *lst, int nbr);
+int					verif_duplicate(t_list *lst);
 int					print_error(t_list *a, t_list *b);
 
 void				swap(t_list **lst);
@@ -62,5 +63,7 @@ void				sort(t_list *lst_a);
 t_list				*simple(t_list *lst_a, t_list *lst_b);
 t_list				*complex(t_list *lst_a, t_list *lst_b);
 t_list				*init_array(t_list *lst);
+
+float				compute_disorder(t_list *lst);
 
 #endif

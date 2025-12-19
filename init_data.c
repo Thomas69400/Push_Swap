@@ -6,34 +6,33 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 13:26:55 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/09 13:32:15 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/18 17:54:44 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*init_list(t_list *lst, int *nbr)
+t_list	*init_list(t_list *lst, char *to_atoi)
 {
 	t_list		*new;
+	int			*nbr;
 	static int	index = 0;
 
-	if (!nbr || verif_duplicate(lst, *nbr))
+	while (has_numbers(to_atoi))
 	{
-		if (nbr)
-			free(nbr);
-		return (clear_lst(lst));
+		nbr = ft_atoi(&to_atoi);
+		if (!nbr || verif_duplicate(lst))
+		{
+			if (nbr)
+				free(nbr);
+			return (clear_lst(lst));
+		}
+		new = new_lst(*nbr, 'a', index++, -1);
+		if (!new)
+			return (clear_lst(lst));
+		add_back_lst(&lst, new);
+		free(nbr);
 	}
-	if (!lst)
-	{
-		lst = new_lst(*nbr, 'a', index++, -1);
-		if (!lst)
-			return (NULL);
-		return (lst);
-	}
-	new = new_lst(*nbr, 'a', index++, -1);
-	if (!new)
-		return (clear_lst(lst));
-	add_back_lst(&lst, new);
 	return (lst);
 }
 

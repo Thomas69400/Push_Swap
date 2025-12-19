@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:13:00 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/09 18:38:50 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/18 17:48:48 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ t_list	*first_lst(t_list *lst)
 
 void	add_back_lst(t_list **lst, t_list *new)
 {
-	if (!lst)
+	if (!(*lst))
 	{
 		*lst = new;
 		return ;

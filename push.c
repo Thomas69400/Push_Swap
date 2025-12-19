@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 18:28:41 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/10 14:20:59 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/19 13:54:24 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,13 @@ void push(t_list **lst, t_list **lst_pushed_into)
 	char name;
 
 	if (!lst || !(*lst))
-		return;
-
+		return ;
 	name = (*lst)->name;
 	print_push(*lst);
 	tmp = *lst;
 	*lst = tmp->next;
 	if (*lst)
 		(*lst)->prev = NULL;
-
 	tmp->next = *lst_pushed_into;
 	if (*lst_pushed_into)
 		(*lst_pushed_into)->prev = tmp;
