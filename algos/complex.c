@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 14:33:46 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/10 14:19:51 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/10 14:41:56 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,8 @@ t_list *complex(t_list *lst_a, t_list *lst_b)
 			push(&lst_a, &lst_b);
 		}
 		while (lst_b)
-		{
-			if (lst_b->next && lst_b->nb < lst_b->next->nb)
-				swap(&lst_b);
 			push(&lst_b, &lst_a);
-		}
+		print_list(lst_a);	
 		index_bit++;
 	}
 	return (lst_a);
