@@ -6,9 +6,13 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 14:33:57 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/09 14:34:00 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/20 15:35:02 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+t_list	*medium(t_list *lst_a, t_list *lst_b, t_bench *bench)
+{
+    return (lst_a);
+}

@@ -3,39 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 18:28:41 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/19 13:54:24 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/20 18:48:56 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void print_push(t_list *lst)
+static void	print_push(char name, t_bench *bench)
 {
-	if (lst->name == 'a')
-		ft_printf("pb\n");
+	if (name == 'a')
+		ft_printf("pb\n", 1);
 	else
-		ft_printf("pa\n");
+		ft_printf("pa\n", 1);
+	if (bench)
+	{
+		if (name == 'a')
+			(*bench).pb++;
+		else
+			(*bench).pa++;
+		(*bench).total++;
+	}
 }
 
-static char change_name(char name)
+static char	change_name(char name)
 {
 	if (name == 'a')
 		return ('b');
 	return ('a');
 }
 
-void push(t_list **lst, t_list **lst_pushed_into)
+int	push(t_list **lst, t_list **lst_pushed_into, t_bench *bench)
 {
-	t_list *tmp;
-	char name;
+	t_list	*tmp;
+	char	name;
 
 	if (!lst || !(*lst))
-		return ;
+		return (1);
 	name = (*lst)->name;
-	print_push(*lst);
+	print_push(name, bench);
 	tmp = *lst;
 	*lst = tmp->next;
 	if (*lst)
@@ -45,4 +53,5 @@ void push(t_list **lst, t_list **lst_pushed_into)
 		(*lst_pushed_into)->prev = tmp;
 	*lst_pushed_into = tmp;
 	(*lst_pushed_into)->name = change_name(name);
+	return (0);
 }

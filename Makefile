@@ -18,6 +18,7 @@ reverse.c \
 rotate.c \
 swap.c \
 disorder.c \
+benchmark.c \
 $(UTILS_DIR)nbr_utils.c \
 $(UTILS_DIR)lst_utils.c \
 $(UTILS_DIR)lst_utils_bis.c \
@@ -26,6 +27,7 @@ $(UTILS_DIR)algos_utils.c \
 $(ALGO_DIR)simple.c \
 $(ALGO_DIR)medium.c \
 $(ALGO_DIR)complex.c \
+$(ALGO_DIR)adaptative.c \
 
 HEADERS = push_swap.h \
 ft_printf.h

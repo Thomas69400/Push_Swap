@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 15:10:17 by tchemin           #+#    #+#             */
-/*   Updated: 2025/11/25 13:58:45 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/20 18:45:26 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int	ft_printf(const char *s, ...);
+int	ft_printf(const char *s, int fd, ...);
 
 #endif

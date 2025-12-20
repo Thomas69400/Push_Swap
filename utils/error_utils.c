@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 11:29:20 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/18 17:36:30 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/20 18:51:18 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	print_error(t_list *a, t_list *b)
 {
 	clear_lst(a);
 	clear_lst(b);
-	ft_printf("Error\n");
+	ft_printf("Error\n", 2);
 	return (1);
 }
 
