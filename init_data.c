@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 13:26:55 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/18 17:54:44 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/19 14:01:37 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*init_list(t_list *lst, char *to_atoi)
+t_list *init_list(t_list *lst, char *to_atoi)
 {
-	t_list		*new;
-	int			*nbr;
-	static int	index = 0;
+	t_list *new;
+	int *nbr;
+	static int index = 0;
 
 	while (has_numbers(to_atoi))
 	{
@@ -36,10 +36,10 @@ t_list	*init_list(t_list *lst, char *to_atoi)
 	return (lst);
 }
 
-t_list	*init_array(t_list *lst)
+t_list *init_array(t_list *lst)
 {
-	t_list	*array;
-	int		index;
+	t_list *array;
+	int index;
 
 	if (!lst)
 		return (NULL);

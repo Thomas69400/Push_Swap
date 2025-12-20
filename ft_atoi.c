@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:25:10 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/18 17:54:30 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/19 13:56:00 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include <stdlib.h>
 
-static int	is_only_nbr(char *s)
+static int is_only_nbr_and_space(char *s)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (s[i])
@@ -27,9 +27,9 @@ static int	is_only_nbr(char *s)
 	return (1);
 }
 
-int	has_numbers(char *to_atoi)
+int has_numbers(char *to_atoi)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (to_atoi[i])
@@ -41,11 +41,11 @@ int	has_numbers(char *to_atoi)
 	return (0);
 }
 
-int	*ft_atoi(char **s)
+int *ft_atoi(char **s)
 {
-	int		minus;
-	long	rslt;
-	int		*ret;
+	int minus;
+	long rslt;
+	int *ret;
 
 	minus = 1;
 	rslt = 0;
@@ -55,7 +55,7 @@ int	*ft_atoi(char **s)
 			minus = -1;
 		(*s)++;
 	}
-	if (!is_only_nbr((*s)))
+	if (!is_only_nbr_and_space((*s)))
 		return (NULL);
 	while ((*s)[0] && (*s)[0] == ' ')
 		(*s)++;

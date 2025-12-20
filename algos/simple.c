@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   simple.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:15:56 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/09 17:18:50 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/19 14:26:35 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sort(t_list *lst_a)
+void sort(t_list *lst_a)
 {
-	t_list	*array;
-	t_list	tmp;
-	int		i;
-	int		j;
+	t_list *array;
+	t_list tmp;
+	int i;
+	int j;
 
 	if (!lst_a)
-		return ;
+		return;
 	array = init_array(lst_a);
 	i = 0;
 	while (i++ < size_lst(lst_a))
@@ -40,13 +40,13 @@ void	sort(t_list *lst_a)
 	place_final_index(array, lst_a);
 }
 
-t_list	*simple(t_list *lst_a, t_list *lst_b)
+t_list *simple(t_list *lst_a, t_list *lst_b)
 {
-	t_list	*tmp;
+	t_list *tmp;
 
 	if (!lst_a)
 		return (NULL);
-	while (!is_sorted(lst_a))
+	while (!is_sorted(lst_a, 'a'))
 	{
 		tmp = first_lst(lst_a);
 		if (tmp->next && tmp->nb > tmp->next->nb)
@@ -60,7 +60,7 @@ t_list	*simple(t_list *lst_a, t_list *lst_b)
 	}
 	while (lst_b)
 		push(&lst_b, &lst_a);
-	if (!is_sorted(lst_a))
+	if (!is_sorted(lst_a, 'a'))
 		lst_a = simple(lst_a, lst_b);
 	return (lst_a);
 }

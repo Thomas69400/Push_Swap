@@ -6,27 +6,27 @@
 /*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:28 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/19 13:54:18 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/19 14:19:28 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	print_list(t_list *lst)
+static void print_list(t_list *lst)
 {
-	t_list	*temp;
+	t_list *temp;
 
 	temp = lst;
 	ft_printf("\n======= MAIN ========\n");
 	while (temp)
 	{
 		ft_printf("%d --> %c / %d / %d \n", temp->nb, temp->name, temp->origin,
-			temp->last_index);
+				  temp->last_index);
 		temp = temp->next;
 	}
 	ft_printf("sortie print\n");
 }
-static t_list	*choose_alg(char *algo, t_list *a, t_list *b)
+static t_list *choose_alg(char *algo, t_list *a, t_list *b)
 {
 	if (a)
 		sort(a);
@@ -51,10 +51,9 @@ static int success(t_list *a, t_list *b)
 	return (0);
 }
 
-
-int	parse_arg(t_list **a, t_list **b, int argc, char **argv)
+int parse_arg(t_list **a, t_list **b, int argc, char **argv)
 {
-	int	i;
+	int i;
 
 	i = 1;
 	if (argv[1] && !ft_strncmp(argv[1], "--bench", 7))
@@ -72,14 +71,15 @@ int	parse_arg(t_list **a, t_list **b, int argc, char **argv)
 	// }
 	// else
 	(*a) = choose_alg(argv[1], *a, *b);
-	//print_list(*a);
+	
+	// print_list(*a);
 	return (1);
 }
 
 int main(int argc, char **argv)
 {
-	t_list	*a;
-	t_list	*b;
+	t_list *a;
+	t_list *b;
 
 	a = NULL;
 	b = NULL;
