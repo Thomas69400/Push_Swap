@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:28 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/21 17:31:46 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/21 20:07:20 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_list	*choose_alg(char *algo, t_list *a, t_list *b, t_bench *bench)
 	if (a)
 		sort(a);
 	if (!ft_strncmp(algo, "--simple", 8))
-		return (simple(a, b, bench));
+		return (simple(a, b, bench, size_lst(a)));
 	else if (!ft_strncmp(algo, "--medium", 8))
 		return (medium(a, b, bench));
 	else if (!ft_strncmp(algo, "--complex", 9))
@@ -87,6 +87,6 @@ int	main(int argc, char **argv)
 		return (1);
 	if (!parse_arg(&a, &b, argc, argv))
 		return (print_error(a, b));
-	//print_list(a);
+	print_list(a);
 	return (success(a, b));
 }

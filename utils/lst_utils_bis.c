@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:39:35 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/21 16:28:26 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/21 18:08:40 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,18 @@ void	place_final_index(t_list *array_sorted, t_list *lst)
 	}
 	if (array_sorted)
 		free(array_sorted);
+}
+
+int	get_max_last_index(t_list *lst)
+{
+	int	max;
+
+	max = 0;
+	while (lst)
+	{
+		if (lst->last_index > max)
+			max = lst->last_index;
+		lst = lst->next;
+	}
+	return (max);
 }

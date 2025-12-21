@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:11 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/20 17:16:55 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/21 18:17:08 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ t_list				*first_lst(t_list *lst);
 t_list				*init_array(t_list *lst);
 int					size_lst(t_list *lst);
 void				*delone_lst(t_list *lst);
+int					get_max_last_index(t_list *lst);
 
 t_list				*choose_alg(char *algo, t_list *a, t_list *b,
 						t_bench *bench);
@@ -82,7 +83,8 @@ void				d_reverse(t_list **a, t_list **b, t_bench *bench);
 int					is_sorted(t_list *lst, char order);
 void				sort(t_list *lst_a);
 
-t_list				*simple(t_list *lst_a, t_list *lst_b, t_bench *bench);
+t_list				*simple(t_list *lst_a, t_list *lst_b, t_bench *bench,
+						int size);
 t_list				*medium(t_list *lst_a, t_list *lst_b, t_bench *bench);
 t_list				*complex(t_list *lst_a, t_list *lst_b, t_bench *bench);
 t_list				*adaptative(t_list *lst_a, t_list *lst_b, t_bench *bench);

@@ -6,25 +6,11 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 14:33:46 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/21 17:32:45 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/21 18:08:49 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-int	get_max_last_index(t_list *lst)
-{
-	int	max;
-
-	max = 0;
-	while (lst)
-	{
-		if (lst->last_index > max)
-			max = lst->last_index;
-		lst = lst->next;
-	}
-	return (max);
-}
 
 void	rotate_to_next(t_list **lst_a, t_list **lst_b, int index_bit,
 		t_bench *bench)
