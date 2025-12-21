@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:28 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/21 17:00:26 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/21 17:31:46 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,6 @@ int	main(int argc, char **argv)
 		return (1);
 	if (!parse_arg(&a, &b, argc, argv))
 		return (print_error(a, b));
+	//print_list(a);
 	return (success(a, b));
 }
