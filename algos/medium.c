@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 14:33:57 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/23 14:42:13 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/23 14:56:44 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ void rotate_faster_to_max(t_list **lst, t_bench *bench)
 
     pos = pos_max_index(*lst, get_max_index(*lst));
     size = size_lst(*lst);
-    if (pos <= size)
+    if (pos <= size / 2)
         while (pos-- > 0)
             rotate(lst, bench);
     else
-        while (pos++ <= size)
+        while (pos++ < size)
             reverse(lst, bench);
 }
 
