@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:11 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/20 17:16:55 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/23 14:14:33 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_bench
 }					t_bench;
 
 int					*ft_atoi(char **s);
+int 				ft_sqrt(int nb);
 int					has_numbers(char *to_atoi);
 int					ft_strncmp(char *s1, char *s2, unsigned int n);
 void				*ft_calloc(size_t nmemb, size_t size);
@@ -67,7 +68,7 @@ void				*delone_lst(t_list *lst);
 t_list				*choose_alg(char *algo, t_list *a, t_list *b,
 						t_bench *bench);
 
-int					verif_duplicate(t_list *lst);
+int					verif_duplicate(t_list *lst, int *nbr);
 int					print_error(t_list *a, t_list *b);
 
 int					swap(t_list **lst, t_bench *bench);

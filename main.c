@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:28 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/21 17:00:26 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/23 14:38:07 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	print_list(t_list *lst)
+static void print_list(t_list *lst)
 {
-	t_list	*temp;
+	t_list *temp;
 
 	temp = lst;
 	ft_printf("\n======= MAIN ========\n", 1);
 	while (temp)
 	{
 		ft_printf("%d --> %c / %d / %d \n", 1, temp->nb, temp->name, temp->origin,
-			temp->last_index);
+				  temp->last_index);
 		temp = temp->next;
 	}
 	ft_printf("sortie print\n", 1);
 }
 
-t_list	*choose_alg(char *algo, t_list *a, t_list *b, t_bench *bench)
+t_list *choose_alg(char *algo, t_list *a, t_list *b, t_bench *bench)
 {
 	if (a)
 		sort(a);
@@ -43,7 +43,7 @@ t_list	*choose_alg(char *algo, t_list *a, t_list *b, t_bench *bench)
 	return (NULL);
 }
 
-static int	success(t_list *a, t_list *b)
+static int success(t_list *a, t_list *b)
 {
 	if (a)
 		clear_lst(a);
@@ -52,16 +52,14 @@ static int	success(t_list *a, t_list *b)
 	return (0);
 }
 
-int	parse_arg(t_list **a, t_list **b, int argc, char **argv)
+int parse_arg(t_list **a, t_list **b, int argc, char **argv)
 {
-	int	i;
+	int i;
 
 	i = 1;
 	if (argv[i] && !ft_strncmp(argv[i], "--bench", 7))
 		i++;
-	if (argv[i] && (!ft_strncmp(argv[i], "--simple", 8) || !ft_strncmp(argv[i],
-				"--complex", 9) || !ft_strncmp(argv[i], "--adaptive", 10)
-			|| !ft_strncmp(argv[i], "--medium", 8)))
+	if (argv[i] && (!ft_strncmp(argv[i], "--simple", 8) || !ft_strncmp(argv[i], "--complex", 9) || !ft_strncmp(argv[i], "--adaptive", 10) || !ft_strncmp(argv[i], "--medium", 8)))
 		i++;
 	while (i < argc)
 	{
@@ -76,10 +74,10 @@ int	parse_arg(t_list **a, t_list **b, int argc, char **argv)
 	return (1);
 }
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	t_list	*a;
-	t_list	*b;
+	t_list *a;
+	t_list *b;
 
 	a = NULL;
 	b = NULL;

@@ -7,6 +7,7 @@ ALGO_DIR = algos/
 
 SRCS = main.c \
 ft_atoi.c \
+ft_sqrt.c \
 ft_bzero.c \
 ft_calloc.c \
 ft_strncmp.c \
