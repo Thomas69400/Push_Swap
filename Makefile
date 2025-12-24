@@ -1,6 +1,6 @@
 CC = cc
 
-CFLAGS = -g3 #-Werror -Wall -Wextra 
+CFLAGS = -g3 -Werror -Wall -Wextra 
 
 UTILS_DIR = utils/
 ALGO_DIR = algos/

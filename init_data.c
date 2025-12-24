@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 13:26:55 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/23 14:14:15 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/24 19:03:44 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_list *init_array(t_list *lst)
 	return (array);
 }
 
-t_bench init_bench(t_bench *bench)
+void init_bench(t_bench *bench)
 {
 	(*bench).pa = 0;
 	(*bench).pb = 0;

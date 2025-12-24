@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:11 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/24 10:57:03 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/24 19:04:00 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,6 @@ t_list				*adaptative(t_list *lst_a, t_list *lst_b, t_bench *bench);
 
 float				compute_disorder(t_list *lst);
 t_list				*benchmark(t_list **a, t_list **b, char *algo);
-t_bench				init_bench(t_bench *bench);
+void				init_bench(t_bench *bench);
 
 #endif

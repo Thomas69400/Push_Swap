@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:15:56 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/24 11:37:15 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/24 19:04:27 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,20 +65,6 @@ void rotate_faster_to_min(t_list **lst, t_bench *bench)
 	else
 		while (pos++ < size)
 			reverse(lst, bench);
-}
-
-static void print_list(t_list *lst)
-{
-	t_list *temp;
-
-	temp = lst;
-	ft_printf("\n======= SIMPLE ========\n", 1);
-	while (temp)
-	{
-		ft_printf("%d --> %c / %d / %d \n", 1, temp->nb, temp->name, temp->origin,
-				  temp->last_index);
-		temp = temp->next;
-	}
 }
 
 t_list *simple(t_list *lst_a, t_list *lst_b, t_bench *bench)
