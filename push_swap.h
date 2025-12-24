@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:11 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/23 14:14:33 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/24 10:57:03 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ t_list				*first_lst(t_list *lst);
 t_list				*init_array(t_list *lst);
 int					size_lst(t_list *lst);
 void				*delone_lst(t_list *lst);
+int 				get_last_index_min_max(t_list *lst, char *search);
 
 t_list				*choose_alg(char *algo, t_list *a, t_list *b,
 						t_bench *bench);

@@ -6,25 +6,11 @@
 /*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 14:33:57 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/23 14:56:44 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/24 11:21:09 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-int get_max_index(t_list *lst)
-{
-    int max;
-
-    max = 0;
-    while (lst)
-    {
-        if (lst->last_index > max)
-            max = lst->last_index;
-        lst = lst->next;
-    }
-    return (max);
-}
 
 int pos_max_index(t_list *lst, int max)
 {
@@ -46,7 +32,7 @@ void rotate_faster_to_max(t_list **lst, t_bench *bench)
     int pos;
     int size;
 
-    pos = pos_max_index(*lst, get_max_index(*lst));
+    pos = pos_max_index(*lst, get_last_index_min_max(*lst, "max"));
     size = size_lst(*lst);
     if (pos <= size / 2)
         while (pos-- > 0)
