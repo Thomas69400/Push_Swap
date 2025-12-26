@@ -3,25 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 13:26:55 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/20 17:22:19 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/24 19:03:44 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*init_list(t_list *lst, char *to_atoi)
+t_list *init_list(t_list *lst, char *to_atoi)
 {
-	t_list		*new;
-	int			*nbr;
-	static int	index = 0;
+	t_list *new;
+	int *nbr;
+	static int index = 0;
 
 	while (has_numbers(to_atoi))
 	{
 		nbr = ft_atoi(&to_atoi);
-		if (!nbr || verif_duplicate(lst))
+		if (!nbr || verif_duplicate(lst, nbr))
 		{
 			if (nbr)
 				free(nbr);
@@ -36,10 +36,10 @@ t_list	*init_list(t_list *lst, char *to_atoi)
 	return (lst);
 }
 
-t_list	*init_array(t_list *lst)
+t_list *init_array(t_list *lst)
 {
-	t_list	*array;
-	int		index;
+	t_list *array;
+	int index;
 
 	if (!lst)
 		return (NULL);
@@ -56,7 +56,7 @@ t_list	*init_array(t_list *lst)
 	return (array);
 }
 
-t_bench	init_bench(t_bench *bench)
+void init_bench(t_bench *bench)
 {
 	(*bench).pa = 0;
 	(*bench).pb = 0;

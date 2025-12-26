@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_utils.c                                      :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/06 11:29:20 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/23 14:15:32 by tchemin          ###   ########.fr       */
+/*   Created: 2025/12/23 13:37:26 by tchemin           #+#    #+#             */
+/*   Updated: 2025/12/23 13:46:47 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-int	print_error(t_list *a, t_list *b)
+int ft_sqrt(int nb)
 {
-	clear_lst(a);
-	clear_lst(b);
-	ft_printf("Error\n", 2);
-	return (1);
-}
+    int i;
 
-int	verif_duplicate(t_list *lst, int *nbr)
-{
-	if (!lst)
-		return (0);
-	while (lst)
-	{
-		if (lst->nb == *nbr)
-			return (1);
-		lst = lst->next;
-	}
-	return (0);
+    if (nb == 0)
+        return (0);
+    if (nb == 1)
+        return (1);
+    i = 0;
+    while (i++ < nb)
+        if (i * i >= nb)
+            return ((int)i);
+    return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:11 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/21 18:17:08 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/26 13:42:37 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_bench
 }					t_bench;
 
 int					*ft_atoi(char **s);
+int 				ft_sqrt(int nb);
 int					has_numbers(char *to_atoi);
 int					ft_strncmp(char *s1, char *s2, unsigned int n);
 void				*ft_calloc(size_t nmemb, size_t size);
@@ -63,12 +64,12 @@ t_list				*first_lst(t_list *lst);
 t_list				*init_array(t_list *lst);
 int					size_lst(t_list *lst);
 void				*delone_lst(t_list *lst);
-int					get_max_last_index(t_list *lst);
+int 				get_last_index_min_max(t_list *lst, char *search);
 
 t_list				*choose_alg(char *algo, t_list *a, t_list *b,
 						t_bench *bench);
 
-int					verif_duplicate(t_list *lst);
+int					verif_duplicate(t_list *lst, int *nbr);
 int					print_error(t_list *a, t_list *b);
 
 int					swap(t_list **lst, t_bench *bench);
@@ -91,6 +92,6 @@ t_list				*adaptative(t_list *lst_a, t_list *lst_b, t_bench *bench);
 
 float				compute_disorder(t_list *lst);
 t_list				*benchmark(t_list **a, t_list **b, char *algo);
-t_bench				init_bench(t_bench *bench);
+void				init_bench(t_bench *bench);
 
 #endif
