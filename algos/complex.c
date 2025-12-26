@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 14:33:46 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/26 13:44:00 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/26 13:55:30 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ void	rotate_to_next(t_list **lst_a, t_list **lst_b, int index_bit,
 	}
 }
 
-t_list *complex(t_list *lst_a, t_list *lst_b, t_bench *bench)
+t_list	*complex(t_list *lst_a, t_list *lst_b, t_bench *bench)
 {
-	int index_bit;
-	int max_bit;
+	int	index_bit;
+	int	max_bit;
 
 	if (is_sorted(lst_a, 'a'))
 		return (lst_a);

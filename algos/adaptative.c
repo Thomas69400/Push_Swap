@@ -6,13 +6,13 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 13:26:42 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/26 13:47:45 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/26 13:55:24 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_list *adaptative(t_list *lst_a, t_list *lst_b, t_bench *bench)
+t_list	*adaptative(t_list *lst_a, t_list *lst_b, t_bench *bench)
 {
 	float	disorder;
 	int		size;

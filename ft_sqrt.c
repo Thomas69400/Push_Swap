@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 13:37:26 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/23 13:46:47 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/26 13:53:50 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_sqrt(int nb)
+int	ft_sqrt(int nb)
 {
-    int i;
+	int	i;
 
-    if (nb == 0)
-        return (0);
-    if (nb == 1)
-        return (1);
-    i = 0;
-    while (i++ < nb)
-        if (i * i >= nb)
-            return ((int)i);
-    return (0);
+	if (nb == 0)
+		return (0);
+	if (nb == 1)
+		return (1);
+	i = 0;
+	while (i++ < nb)
+		if (i * i >= nb)
+			return ((int)i);
+	return (0);
 }

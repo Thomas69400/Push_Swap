@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 13:26:55 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/24 19:03:44 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/26 14:22:11 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list *init_list(t_list *lst, char *to_atoi)
+t_list	*init_list(t_list *lst, char *to_atoi)
 {
-	t_list *new;
-	int *nbr;
-	static int index = 0;
+	t_list		*new;
+	int			*nbr;
+	static int	index = 0;
 
 	while (has_numbers(to_atoi))
 	{
@@ -33,13 +33,15 @@ t_list *init_list(t_list *lst, char *to_atoi)
 		add_back_lst(&lst, new);
 		free(nbr);
 	}
+	if (!is_only_nbr_and_space(to_atoi))
+		return (clear_lst(lst));
 	return (lst);
 }
 
-t_list *init_array(t_list *lst)
+t_list	*init_array(t_list *lst)
 {
-	t_list *array;
-	int index;
+	t_list	*array;
+	int		index;
 
 	if (!lst)
 		return (NULL);
@@ -56,7 +58,7 @@ t_list *init_array(t_list *lst)
 	return (array);
 }
 
-void init_bench(t_bench *bench)
+void	init_bench(t_bench *bench)
 {
 	(*bench).pa = 0;
 	(*bench).pb = 0;

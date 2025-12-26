@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:25:10 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/19 13:56:00 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/26 14:20:01 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include <stdlib.h>
 
-static int is_only_nbr_and_space(char *s)
+int	is_only_nbr_and_space(char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i])
@@ -27,9 +27,9 @@ static int is_only_nbr_and_space(char *s)
 	return (1);
 }
 
-int has_numbers(char *to_atoi)
+int	has_numbers(char *to_atoi)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (to_atoi[i])
@@ -41,11 +41,11 @@ int has_numbers(char *to_atoi)
 	return (0);
 }
 
-int *ft_atoi(char **s)
+int	*ft_atoi(char **s)
 {
-	int minus;
-	long rslt;
-	int *ret;
+	int		minus;
+	long	rslt;
+	int		*ret;
 
 	minus = 1;
 	rslt = 0;

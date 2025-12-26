@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:15:56 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/26 13:50:12 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/26 13:55:43 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ t_list	*sort_2_nb(t_list *lst, t_bench *bench)
 	return (lst);
 }
 
-int pos_min_index(t_list *lst, int min)
+int	pos_min_index(t_list *lst, int min)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (lst)
@@ -61,10 +61,10 @@ int pos_min_index(t_list *lst, int min)
 	return (i);
 }
 
-void rotate_faster_to_min(t_list **lst, t_bench *bench)
+void	rotate_faster_to_min(t_list **lst, t_bench *bench)
 {
-	int pos;
-	int size;
+	int	pos;
+	int	size;
 
 	pos = pos_min_index(*lst, get_last_index_min_max(*lst, "min"));
 	size = size_lst(*lst);
@@ -76,7 +76,7 @@ void rotate_faster_to_min(t_list **lst, t_bench *bench)
 			reverse(lst, bench);
 }
 
-t_list *simple(t_list *lst_a, t_list *lst_b, t_bench *bench, int size)
+t_list	*simple(t_list *lst_a, t_list *lst_b, t_bench *bench, int size)
 {
 	if (is_sorted(lst_a, 'a'))
 		return (lst_a);
