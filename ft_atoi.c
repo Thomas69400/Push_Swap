@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:25:10 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/26 14:20:01 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/26 14:31:03 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	*ft_atoi(char **s)
 		(*s)++;
 	while (('0' <= (*s)[0] && (*s)[0] <= '9') && (*s)[0])
 		rslt = (rslt * 10) + ((*s)++[0] - 48);
-	if (rslt < -2147483648 || rslt > 2147483647)
+	if (rslt * minus < -2147483648 || rslt * minus > 2147483647)
 		return (NULL);
 	ret = malloc(sizeof(int));
 	if (!ret)
