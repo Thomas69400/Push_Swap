@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:25:10 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/26 14:31:03 by tchemin          ###   ########.fr       */
+/*   Updated: 2026/01/11 14:47:40 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ int	is_only_nbr_and_space(char *s)
 	i = 0;
 	while (s[i])
 	{
+		if (s[i] == '-' || s[i] == '+')
+			if (('0' <= s[i + 1] && s[i + 1] <= '9'))
+				return (1);
 		if (!(('0' <= s[i] && s[i] <= '9') || s[i] == ' '))
 			return (0);
 		i++;
@@ -41,20 +44,28 @@ int	has_numbers(char *to_atoi)
 	return (0);
 }
 
-int	*ft_atoi(char **s)
+int	check_minus(char **s)
 {
-	int		minus;
-	long	rslt;
-	int		*ret;
+	int	minus;
 
 	minus = 1;
-	rslt = 0;
 	if ((*s)[0] == '-' || (*s)[0] == '+')
 	{
 		if ((*s)[0] == '-')
 			minus = -1;
 		(*s)++;
 	}
+	return (minus);
+}
+
+int	*ft_atoi(char **s)
+{
+	int		minus;
+	long	rslt;
+	int		*ret;
+
+	rslt = 0;
+	minus = check_minus(s);
 	if (!is_only_nbr_and_space((*s)))
 		return (NULL);
 	while ((*s)[0] && (*s)[0] == ' ')
@@ -67,5 +78,7 @@ int	*ft_atoi(char **s)
 	if (!ret)
 		return (NULL);
 	*ret = (int)(rslt * minus);
+	if ((*s)[0])
+		(*s)++;
 	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:27:19 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/20 18:49:07 by tchemin          ###   ########.fr       */
+/*   Updated: 2026/01/11 14:11:55 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	swap(t_list **lst, t_bench *bench)
 	*lst = first_lst((*lst));
 	tmp = (*lst)->next;
 	tmp->prev = NULL;
+	if (tmp->next)
+		tmp->next->prev = *lst;
 	(*lst)->next = tmp->next;
 	tmp->next = *lst;
 	(*lst)->prev = tmp;
