@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 14:13:18 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/20 14:55:18 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/26 14:07:38 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ float	compute_disorder(t_list *lst)
 
 	mistakes = 0;
 	pairs = 0;
+	if (size_lst(lst) <= 1)
+		return (0);
 	while (lst)
 	{
 		tmp = lst->next;

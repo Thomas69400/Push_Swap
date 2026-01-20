@@ -3,28 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   complex.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 14:33:46 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/24 10:59:40 by tchemin          ###   ########.fr       */
+/*   Updated: 2025/12/26 13:55:30 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void rotate_to_next(t_list **lst_a, t_list **lst_b, int index_bit,
-					t_bench *bench)
+void	rotate_to_next(t_list **lst_a, t_list **lst_b, int index_bit,
+		t_bench *bench)
 {
-	int i;
-	int size;
-	int ret;
+	int	i;
+	int	size;
 
 	size = size_lst(*lst_a);
 	i = 0;
 	while (i < size)
 	{
-		ret = ((*lst_a)->last_index & (1 << index_bit));
-		if (ret == 0)
+		if (!((*lst_a)->last_index & (1 << index_bit)))
 			push(lst_a, lst_b, bench);
 		else
 			rotate(lst_a, bench);
@@ -32,10 +30,10 @@ void rotate_to_next(t_list **lst_a, t_list **lst_b, int index_bit,
 	}
 }
 
-t_list *complex(t_list *lst_a, t_list *lst_b, t_bench *bench)
+t_list	*complex(t_list *lst_a, t_list *lst_b, t_bench *bench)
 {
-	int index_bit;
-	int max_bit;
+	int	index_bit;
+	int	max_bit;
 
 	if (is_sorted(lst_a, 'a'))
 		return (lst_a);
@@ -47,6 +45,8 @@ t_list *complex(t_list *lst_a, t_list *lst_b, t_bench *bench)
 		while (lst_b)
 			push(&lst_b, &lst_a, bench);
 		index_bit++;
+		if (is_sorted(lst_a, 'a'))
+			return (lst_a);
 	}
 	return (lst_a);
 }

@@ -6,15 +6,15 @@
 /*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:05:48 by tchemin           #+#    #+#             */
-/*   Updated: 2026/01/20 10:38:37 by tchemin          ###   ########.fr       */
+/*   Updated: 2026/01/20 11:17:42 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void print_strategy(char *algo, float disorder)
+void	print_strategy(char *algo, float disorder)
 {
-	char *strategy;
+	char	*strategy;
 
 	if (disorder < 0.2)
 		strategy = "O(n²)";

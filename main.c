@@ -6,13 +6,13 @@
 /*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:28 by tchemin           #+#    #+#             */
-/*   Updated: 2026/01/20 11:10:23 by tchemin          ###   ########.fr       */
+/*   Updated: 2026/01/20 11:15:33 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list *choose_alg(char *algo, t_list *a, t_list *b, t_bench *bench)
+t_list	*choose_alg(char *algo, t_list *a, t_list *b, t_bench *bench)
 {
 	float disorder;
 
@@ -20,7 +20,7 @@ t_list *choose_alg(char *algo, t_list *a, t_list *b, t_bench *bench)
 		sort(a);
 	disorder = compute_disorder(a);
 	if (!ft_strncmp(algo, "--simple", 8))
-		a = (simple(a, b, bench));
+		a = (simple(a, b, bench, size_lst(a)));
 	else if (!ft_strncmp(algo, "--medium", 8))
 		a = (medium(a, b, bench));
 	else if (!ft_strncmp(algo, "--complex", 9))
@@ -32,7 +32,7 @@ t_list *choose_alg(char *algo, t_list *a, t_list *b, t_bench *bench)
 	return (a);
 }
 
-static int success(t_list *a, t_list *b)
+static int	success(t_list *a, t_list *b)
 {
 	if (a)
 		clear_lst(a);
@@ -41,7 +41,7 @@ static int success(t_list *a, t_list *b)
 	return (0);
 }
 
-int parse_arg(t_list **a, t_list **b, int argc, char **argv)
+int	parse_arg(t_list **a, t_list **b, int argc, char **argv)
 {
 	int		i;
 	t_bench	bench;
@@ -64,10 +64,10 @@ int parse_arg(t_list **a, t_list **b, int argc, char **argv)
 	return (1);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_list *a;
-	t_list *b;
+	t_list	*a;
+	t_list	*b;
 
 	a = NULL;
 	b = NULL;

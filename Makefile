@@ -1,6 +1,6 @@
 CC = cc
 
-CFLAGS = -g3 -Werror -Wall -Wextra 
+CFLAGS = -g3 -Werror -Wall -Wextra
 
 UTILS_DIR = utils/
 ALGO_DIR = algos/
@@ -11,7 +11,6 @@ ft_sqrt.c \
 ft_bzero.c \
 ft_calloc.c \
 ft_strncmp.c \
-ft_strlen.c \
 init_data.c \
 ft_printf.c \
 push.c \
