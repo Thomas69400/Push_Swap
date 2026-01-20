@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:11 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/24 19:04:00 by tchemin          ###   ########.fr       */
+/*   Updated: 2026/01/20 11:02:02 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ typedef struct s_bench
 	int				rrb;
 	int				rrr;
 	int				total;
+	int				print_bench;
+	int				print_ope;
 }					t_bench;
 
 int					*ft_atoi(char **s);
@@ -90,7 +92,7 @@ t_list				*complex(t_list *lst_a, t_list *lst_b, t_bench *bench);
 t_list				*adaptative(t_list *lst_a, t_list *lst_b, t_bench *bench);
 
 float				compute_disorder(t_list *lst);
-t_list				*benchmark(t_list **a, t_list **b, char *algo);
+void				benchmark(char *algo, t_bench *bench, float disorder);
 void				init_bench(t_bench *bench);
 
 #endif

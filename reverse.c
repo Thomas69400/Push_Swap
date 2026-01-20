@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 11:14:03 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/20 18:49:01 by tchemin          ###   ########.fr       */
+/*   Updated: 2026/01/20 11:02:21 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	print_reverse(char name, t_bench *bench)
+static void print_reverse(char name, t_bench *bench)
 {
-	ft_printf("rr%c\n", 1, name);
+	if (bench && bench->print_ope)
+		ft_printf("rr%c\n", 1, name);
 	if (bench)
 	{
 		if (name == 'a')
@@ -25,9 +26,9 @@ static void	print_reverse(char name, t_bench *bench)
 	}
 }
 
-int	reverse(t_list **lst, t_bench *bench)
+int reverse(t_list **lst, t_bench *bench)
 {
-	t_list	*tmp;
+	t_list *tmp;
 
 	if (!lst || !*lst)
 		return (1);
@@ -40,7 +41,7 @@ int	reverse(t_list **lst, t_bench *bench)
 	return (0);
 }
 
-void	d_reverse(t_list **a, t_list **b, t_bench *bench)
+void d_reverse(t_list **a, t_list **b, t_bench *bench)
 {
 	if (!reverse(a, bench))
 		(*bench).rra--;

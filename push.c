@@ -3,21 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 18:28:41 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/21 14:36:30 by tchemin          ###   ########.fr       */
+/*   Updated: 2026/01/20 11:02:13 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	print_push(char name, t_bench *bench)
+static void print_push(char name, t_bench *bench)
 {
-	if (name == 'a')
-		ft_printf("pb\n", 1);
-	else
-		ft_printf("pa\n", 1);
+	if (bench && bench->print_ope)
+	{
+		if (name == 'a')
+			ft_printf("pb\n", 1);
+		else
+			ft_printf("pa\n", 1);
+	}
 	if (bench)
 	{
 		if (name == 'a')
@@ -28,17 +31,17 @@ static void	print_push(char name, t_bench *bench)
 	}
 }
 
-static char	change_name(char name)
+static char change_name(char name)
 {
 	if (name == 'a')
 		return ('b');
 	return ('a');
 }
 
-int	push(t_list **lst, t_list **lst_pushed_into, t_bench *bench)
+int push(t_list **lst, t_list **lst_pushed_into, t_bench *bench)
 {
-	t_list	*tmp;
-	char	name;
+	t_list *tmp;
+	char name;
 
 	if (!lst || !(*lst))
 		return (1);

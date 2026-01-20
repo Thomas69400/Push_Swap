@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 10:49:38 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/20 18:49:04 by tchemin          ###   ########.fr       */
+/*   Updated: 2026/01/20 11:02:20 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	print_rotate(char name, t_bench *bench)
+static void print_rotate(char name, t_bench *bench)
 {
-	ft_printf("r%c\n", 1, name);
+	if (bench && bench->print_ope)
+		ft_printf("r%c\n", 1, name);
 	if (bench)
 	{
 		if (name == 'a')
@@ -25,9 +26,9 @@ static void	print_rotate(char name, t_bench *bench)
 	}
 }
 
-int	rotate(t_list **lst, t_bench *bench)
+int rotate(t_list **lst, t_bench *bench)
 {
-	t_list	*tmp;
+	t_list *tmp;
 
 	if (!lst || !*lst)
 		return (1);
@@ -41,7 +42,7 @@ int	rotate(t_list **lst, t_bench *bench)
 	return (0);
 }
 
-void	d_rotate(t_list **a, t_list **b, t_bench *bench)
+void d_rotate(t_list **a, t_list **b, t_bench *bench)
 {
 	if (!rotate(a, bench))
 		(*bench).ra--;

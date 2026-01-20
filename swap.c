@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:27:19 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/20 18:49:07 by tchemin          ###   ########.fr       */
+/*   Updated: 2026/01/20 11:02:17 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	print_swap(char name, t_bench *bench)
+static void print_swap(char name, t_bench *bench)
 {
-	ft_printf("s%c\n", 1, name);
+	if (bench && bench->print_ope)
+		ft_printf("s%c\n", 1, name);
 	if (bench)
 	{
 		if (name == 'a')
@@ -25,9 +26,9 @@ static void	print_swap(char name, t_bench *bench)
 	}
 }
 
-int	swap(t_list **lst, t_bench *bench)
+int swap(t_list **lst, t_bench *bench)
 {
-	t_list	*tmp;
+	t_list *tmp;
 
 	if (!(*lst)->next || !(*lst))
 		return (1);
@@ -42,7 +43,7 @@ int	swap(t_list **lst, t_bench *bench)
 	return (0);
 }
 
-void	d_swap(t_list *a, t_list *b, t_bench *bench)
+void d_swap(t_list *a, t_list *b, t_bench *bench)
 {
 	if (!swap(&a, bench))
 		(*bench).sa--;

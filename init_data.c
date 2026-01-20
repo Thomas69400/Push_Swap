@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 13:26:55 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/24 19:03:44 by tchemin          ###   ########.fr       */
+/*   Updated: 2026/01/20 11:03:06 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,6 @@ void init_bench(t_bench *bench)
 	(*bench).rrb = 0;
 	(*bench).rrr = 0;
 	(*bench).total = 0;
+	(*bench).print_bench = 0;
+	(*bench).print_ope = 1;
 }
