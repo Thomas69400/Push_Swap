@@ -6,7 +6,7 @@
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:25:10 by tchemin           #+#    #+#             */
-/*   Updated: 2026/01/11 14:47:40 by tchemin          ###   ########.fr       */
+/*   Updated: 2026/01/28 17:50:27 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,11 @@ int	*ft_atoi(char **s)
 	int		*ret;
 
 	rslt = 0;
-	minus = check_minus(s);
 	if (!is_only_nbr_and_space((*s)))
 		return (NULL);
 	while ((*s)[0] && (*s)[0] == ' ')
 		(*s)++;
+	minus = check_minus(s);
 	while (('0' <= (*s)[0] && (*s)[0] <= '9') && (*s)[0])
 		rslt = (rslt * 10) + ((*s)++[0] - 48);
 	if (rslt * minus < -2147483648 || rslt * minus > 2147483647)
