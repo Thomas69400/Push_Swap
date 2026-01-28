@@ -10,7 +10,7 @@ ft_atoi.c \
 ft_sqrt.c \
 ft_bzero.c \
 ft_calloc.c \
-ft_strncmp.c \
+ft_strcmp.c \
 init_data.c \
 ft_printf.c \
 push.c \
@@ -27,7 +27,7 @@ $(UTILS_DIR)algos_utils.c \
 $(ALGO_DIR)simple.c \
 $(ALGO_DIR)medium.c \
 $(ALGO_DIR)complex.c \
-$(ALGO_DIR)adaptative.c \
+$(ALGO_DIR)adaptive.c \
 
 HEADERS = push_swap.h \
 ft_printf.h

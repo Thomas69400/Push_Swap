@@ -6,7 +6,7 @@
 /*   By: madufeal <madufeal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:11 by tchemin           #+#    #+#             */
-/*   Updated: 2026/01/28 14:43:29 by madufeal         ###   ########.fr       */
+/*   Updated: 2026/01/28 15:21:37 by madufeal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ t_list				*simple(t_list *lst_a, t_list *lst_b, t_bench *bench,
 						int size);
 t_list				*medium(t_list *lst_a, t_list *lst_b, t_bench *bench);
 t_list				*complex(t_list *lst_a, t_list *lst_b, t_bench *bench);
-t_list				*adaptative(t_list *lst_a, t_list *lst_b, t_bench *bench);
+t_list				*adaptive(t_list *lst_a, t_list *lst_b, t_bench *bench);
 
 float				compute_disorder(t_list *lst);
 void				benchmark(t_bench *bench, char *algo);

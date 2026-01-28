@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   adaptative.c                                       :+:      :+:    :+:   */
+/*   adaptive.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-t_list	*adaptative(t_list *lst_a, t_list *lst_b, t_bench *bench)
+t_list	*adaptive(t_list *lst_a, t_list *lst_b, t_bench *bench)
 {
 	float	disorder;
 	int		size;

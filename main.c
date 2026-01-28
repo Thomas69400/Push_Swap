@@ -6,7 +6,7 @@
 /*   By: madufeal <madufeal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:28 by tchemin           #+#    #+#             */
-/*   Updated: 2026/01/28 14:57:32 by madufeal         ###   ########.fr       */
+/*   Updated: 2026/01/28 15:30:30 by madufeal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_list	*choose_alg(char *algo, t_list *a, t_list *b, t_bench *bench)
 	else if (ft_strcmp(algo, "--complex") == 0)
 		return (complex(a, b, bench));
 	else
-		return (adaptative(a, b, bench));
+		return (adaptive(a, b, bench));
 	print_error(a, b);
 	return (NULL);
 }
@@ -58,7 +58,7 @@ int	parse_arg(t_list **a, t_list **b, int argc, char **argv)
 	if (!(*a))
 		exit(EXIT_SUCCESS);
 	init_bench(&bench, *a);
-	(*a) = choose_alg(argv[1], *a, *b, &bench);
+	(*a) = choose_alg(argv[2], *a, *b, &bench);
 	if (argv[2] && ft_strcmp(argv[1], "--bench") == 0)
 		benchmark(&bench, argv[2]);
 	return (1);
