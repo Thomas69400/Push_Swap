@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: madufeal <madufeal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 14:59:17 by madufeal          #+#    #+#             */
-/*   Updated: 2026/01/28 14:59:49 by madufeal         ###   ########.fr       */
+/*   Updated: 2026/01/28 15:53:18 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static void	print_reverse(char name, t_bench *bench)
-{	if (bench->to_print)
+{
+	if (bench->to_print)
 		ft_printf("rr%c\n", 1, name);
 	if (name == 'a')
 		(*bench).rra++;

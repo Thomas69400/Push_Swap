@@ -1,6 +1,6 @@
 CC = cc
 
-CFLAGS = -g3 -Werror -Wall -Wextra
+CFLAGS = -Werror -Wall -Wextra
 
 UTILS_DIR = utils/
 ALGO_DIR = algos/
@@ -38,10 +38,10 @@ NAME = push_swap
 
 all : $(NAME)
 
-$(NAME): $(OBJS) Makefile $(HEADER)
-	$(CC) $(CFLAGS) -o $@ $(OBJS)
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $^
 
-%.o: %.c $(HEADER)
+%.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

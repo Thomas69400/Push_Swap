@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: madufeal <madufeal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:28 by tchemin           #+#    #+#             */
-/*   Updated: 2026/01/28 15:30:30 by madufeal         ###   ########.fr       */
+/*   Updated: 2026/01/28 16:14:40 by tchemin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,28 +37,35 @@ static int	success(t_list *a, t_list *b)
 	return (0);
 }
 
+int	get_stack(t_list **a, int start, char **argv, int argc)
+{
+	while (start < argc)
+	{
+		(*a) = init_list(*a, argv[start++]);
+		if (!(*a))
+			return (0);
+	}
+	if (!(*a))
+		exit(EXIT_SUCCESS);
+	return (1);
+}
+
 int	parse_arg(t_list **a, t_list **b, int argc, char **argv)
 {
-	int	i;
+	int		i;
 	t_bench	bench;
 
 	i = 1;
 	if (argv[i] && ft_strcmp(argv[i], "--bench") == 0)
 		i++;
 	if (argv[i] && (ft_strcmp(argv[i], "--simple") == 0 || ft_strcmp(argv[i],
-		"--complex") == 0 || ft_strcmp(argv[i], "--adaptive") == 0
-		|| ft_strcmp(argv[i], "--medium") == 0))
+				"--complex") == 0 || ft_strcmp(argv[i], "--adaptive") == 0
+			|| ft_strcmp(argv[i], "--medium") == 0))
 		i++;
-	while (i < argc)
-		{
-			(*a) = init_list(*a, argv[i++]);
-			if (!(*a))
-				return (0);
-		}
-	if (!(*a))
-		exit(EXIT_SUCCESS);
+	if (!get_stack(a, i, argv, argc))
+		return (0);
 	init_bench(&bench, *a);
-	(*a) = choose_alg(argv[2], *a, *b, &bench);
+	(*a) = choose_alg(argv[i - 1], *a, *b, &bench);
 	if (argv[2] && ft_strcmp(argv[1], "--bench") == 0)
 		benchmark(&bench, argv[2]);
 	return (1);
