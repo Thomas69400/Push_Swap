@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_utils_bis.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: madufeal <madufeal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:39:35 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/26 13:55:50 by tchemin          ###   ########.fr       */
+/*   Updated: 2026/01/28 14:46:27 by madufeal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	get_last_index_min_max(t_list *lst, char *search)
 	int	value;
 
 	value = 0;
-	if (!ft_strncmp(search, "max", 3))
+	if (ft_strcmp(search, "max") == 0)
 	{
 		while (lst)
 		{
@@ -98,7 +98,7 @@ int	get_last_index_min_max(t_list *lst, char *search)
 			lst = lst->next;
 		}
 	}
-	else if (!ft_strncmp(search, "min", 3))
+	else if (ft_strcmp(search, "min") == 0)
 	{
 		value = get_last_index_min_max(lst, "max");
 		while (lst)

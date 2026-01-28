@@ -3,26 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: madufeal <madufeal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/06 11:14:03 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/20 18:49:01 by tchemin          ###   ########.fr       */
+/*   Created: 2026/01/28 14:59:17 by madufeal          #+#    #+#             */
+/*   Updated: 2026/01/28 14:59:49 by madufeal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static void	print_reverse(char name, t_bench *bench)
-{
-	ft_printf("rr%c\n", 1, name);
-	if (bench)
-	{
-		if (name == 'a')
-			(*bench).rra++;
-		else
-			(*bench).rrb++;
-		(*bench).total++;
-	}
+{	if (bench->to_print)
+		ft_printf("rr%c\n", 1, name);
+	if (name == 'a')
+		(*bench).rra++;
+	else
+		(*bench).rrb++;
+	(*bench).total++;
 }
 
 int	reverse(t_list **lst, t_bench *bench)

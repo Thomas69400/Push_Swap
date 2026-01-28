@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: madufeal <madufeal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:27:19 by tchemin           #+#    #+#             */
-/*   Updated: 2026/01/11 14:11:55 by tchemin          ###   ########.fr       */
+/*   Updated: 2026/01/28 14:13:38 by madufeal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 static void	print_swap(char name, t_bench *bench)
 {
-	ft_printf("s%c\n", 1, name);
-	if (bench)
-	{
-		if (name == 'a')
-			(*bench).sa++;
-		else
-			(*bench).sb++;
-		(*bench).total++;
-	}
+	if (bench->to_print)
+		ft_printf("s%c\n", 1, name);
+	if (name == 'a')
+		(*bench).sa++;
+	else
+		(*bench).sb++;
+	(*bench).total++;
 }
 
 int	swap(t_list **lst, t_bench *bench)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: madufeal <madufeal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:11 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/26 14:20:14 by tchemin          ###   ########.fr       */
+/*   Updated: 2026/01/28 14:43:29 by madufeal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,15 @@ typedef struct s_bench
 	int				rrb;
 	int				rrr;
 	int				total;
+	int				to_print;
+	float			disorder;
 }					t_bench;
 
 int					*ft_atoi(char **s);
 int					has_numbers(char *to_atoi);
 int					is_only_nbr_and_space(char *s);
 int					ft_sqrt(int nb);
-int					ft_strncmp(char *s1, char *s2, unsigned int n);
+int					ft_strcmp(char *s1, char *s2);
 void				*ft_calloc(size_t nmemb, size_t size);
 void				ft_bzero(void *s, size_t n);
 int					get_size_of_bin(int nbr);
@@ -91,7 +93,7 @@ t_list				*complex(t_list *lst_a, t_list *lst_b, t_bench *bench);
 t_list				*adaptative(t_list *lst_a, t_list *lst_b, t_bench *bench);
 
 float				compute_disorder(t_list *lst);
-t_list				*benchmark(t_list **a, t_list **b, char *algo);
-void				init_bench(t_bench *bench);
+void				benchmark(t_bench *bench, char *algo);
+void				init_bench(t_bench *bench, t_list *a);
 
 #endif

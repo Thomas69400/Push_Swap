@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: madufeal <madufeal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 10:49:38 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/20 18:49:04 by tchemin          ###   ########.fr       */
+/*   Updated: 2026/01/28 14:14:09 by madufeal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 static void	print_rotate(char name, t_bench *bench)
 {
-	ft_printf("r%c\n", 1, name);
-	if (bench)
-	{
-		if (name == 'a')
-			(*bench).ra++;
-		else
-			(*bench).rb++;
-		(*bench).total++;
-	}
+	if (bench->to_print)
+		ft_printf("r%c\n", 1, name);
+	if (name == 'a')
+		(*bench).ra++;
+	else
+		(*bench).rb++;
+	(*bench).total++;
 }
 
 int	rotate(t_list **lst, t_bench *bench)

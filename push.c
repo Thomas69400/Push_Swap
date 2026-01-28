@@ -3,29 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: madufeal <madufeal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 18:28:41 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/21 14:36:30 by tchemin          ###   ########.fr       */
+/*   Updated: 2026/01/28 14:15:22 by madufeal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static void	print_push(char name, t_bench *bench)
-{
-	if (name == 'a')
-		ft_printf("pb\n", 1);
-	else
-		ft_printf("pa\n", 1);
-	if (bench)
+{	if (bench->to_print)
 	{
 		if (name == 'a')
-			(*bench).pb++;
+			ft_printf("pb\n", 1);
 		else
-			(*bench).pa++;
-		(*bench).total++;
+			ft_printf("pa\n", 1);
 	}
+	if (name == 'a')
+		(*bench).pb++;
+	else
+		(*bench).pa++;
+	(*bench).total++;	
 }
 
 static char	change_name(char name)

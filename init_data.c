@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: madufeal <madufeal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 13:26:55 by tchemin           #+#    #+#             */
-/*   Updated: 2025/12/26 14:22:11 by tchemin          ###   ########.fr       */
+/*   Updated: 2026/01/28 14:58:43 by madufeal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_list	*init_array(t_list *lst)
 	return (array);
 }
 
-void	init_bench(t_bench *bench)
+void	init_bench(t_bench *bench, t_list *a)
 {
 	(*bench).pa = 0;
 	(*bench).pb = 0;
@@ -72,4 +72,6 @@ void	init_bench(t_bench *bench)
 	(*bench).rrb = 0;
 	(*bench).rrr = 0;
 	(*bench).total = 0;
+	(*bench).to_print = 1;
+	(*bench).disorder = compute_disorder(a);
 }

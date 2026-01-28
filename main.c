@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchemin <tchemin@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: madufeal <madufeal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 16:14:28 by tchemin           #+#    #+#             */
-/*   Updated: 2026/01/11 14:48:31 by tchemin          ###   ########.fr       */
+/*   Updated: 2026/01/28 14:57:32 by madufeal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ t_list	*choose_alg(char *algo, t_list *a, t_list *b, t_bench *bench)
 {
 	if (a)
 		sort(a);
-	if (!ft_strncmp(algo, "--simple", 8))
+	if (ft_strcmp(algo, "--simple") == 0)
 		return (simple(a, b, bench, size_lst(a)));
-	else if (!ft_strncmp(algo, "--medium", 8))
+	else if (ft_strcmp(algo, "--medium") == 0)
 		return (medium(a, b, bench));
-	else if (!ft_strncmp(algo, "--complex", 9))
+	else if (ft_strcmp(algo, "--complex") == 0)
 		return (complex(a, b, bench));
 	else
 		return (adaptative(a, b, bench));
@@ -40,26 +40,27 @@ static int	success(t_list *a, t_list *b)
 int	parse_arg(t_list **a, t_list **b, int argc, char **argv)
 {
 	int	i;
+	t_bench	bench;
 
 	i = 1;
-	if (argv[i] && !ft_strncmp(argv[i], "--bench", 7))
+	if (argv[i] && ft_strcmp(argv[i], "--bench") == 0)
 		i++;
-	if (argv[i] && (!ft_strncmp(argv[i], "--simple", 8) || !ft_strncmp(argv[i],
-				"--complex", 9) || !ft_strncmp(argv[i], "--adaptive", 10)
-			|| !ft_strncmp(argv[i], "--medium", 8)))
+	if (argv[i] && (ft_strcmp(argv[i], "--simple") == 0 || ft_strcmp(argv[i],
+		"--complex") == 0 || ft_strcmp(argv[i], "--adaptive") == 0
+		|| ft_strcmp(argv[i], "--medium") == 0))
 		i++;
 	while (i < argc)
-	{
-		(*a) = init_list(*a, argv[i++]);
-		if (!(*a))
-			return (0);
-	}
+		{
+			(*a) = init_list(*a, argv[i++]);
+			if (!(*a))
+				return (0);
+		}
 	if (!(*a))
 		exit(EXIT_SUCCESS);
-	if (argv[1] && !ft_strncmp(argv[1], "--bench", 7) && argv[2])
-		benchmark(a, b, argv[2]);
-	else
-		(*a) = choose_alg(argv[1], *a, *b, NULL);
+	init_bench(&bench, *a);
+	(*a) = choose_alg(argv[1], *a, *b, &bench);
+	if (argv[2] && ft_strcmp(argv[1], "--bench") == 0)
+		benchmark(&bench, argv[2]);
 	return (1);
 }
 
